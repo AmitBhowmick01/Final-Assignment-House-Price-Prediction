@@ -36,7 +36,7 @@ def predict():
         text = predict * 343.66
         print(text)
 
-        return str(render_template('index.html', result=text))
+        return str(render_template('index.html', result=np.round(text,2)))
 
 if __name__ == '__main__':
     app.run(debug= True)
