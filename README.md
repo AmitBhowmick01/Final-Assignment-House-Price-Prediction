@@ -5,7 +5,7 @@ This project focuses on predicting house prices in the USA using machine learnin
 
 ## ***Website Interface***
 
-![Screenshot (92)](https://github.com/AmitBhowmick01/Final-Assignment-House-Price-Prediction/assets/126709893/364f49cb-4731-42f2-91b9-c7086494c67e)
+![Screenshot (94)](https://github.com/AmitBhowmick01/Final-Assignment-House-Price-Prediction/assets/126709893/a1b55367-468f-42c3-8f08-61ab10dc17f2)
 
 
 ## Algorithms Used
