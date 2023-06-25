@@ -1,8 +1,12 @@
 # **USA House Price Prediction**
 
 
-
 This project focuses on predicting house prices in the USA using machine learning regression algorithms. The repository contains the implementation of 7 regression algorithms, including Linear Regression, Random Forest Regressor, Gradient Boosting Regressor, SVR, DecisionTreeRegressor, ElasticNet, and XGBRegressor. The goal is to identify the best-performing regression model for house price prediction.
+
+## ***Website Interface***
+
+![Screenshot (92)](https://github.com/AmitBhowmick01/Final-Assignment-House-Price-Prediction/assets/126709893/364f49cb-4731-42f2-91b9-c7086494c67e)
+
 
 ## Algorithms Used
 
