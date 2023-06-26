@@ -29,14 +29,13 @@ def predict():
         zip = int(98103)
         country = int(0)
         build = (request.form.get('yr_built'))
-        reno = (request.form.get('sqft_basement'))
+        reno = (request.form.get('yr_renovated'))
 
-        predict = model.predict(np.array([year, bdrm, btrm, sf_liv, sf_lot, flr, 
-                                          water, view, condition, sf_ab, sf_bs, build, reno, city, zip, country]).reshape(1,16))
-        text = predict * 343.66
-        print(text)
+        features = np.array([year, bdrm, btrm, sf_liv, sf_lot, flr, water, view, condition, sf_ab, sf_bs, build, reno, city, zip, country]).reshape(1, -1)
+        prediction = model.predict(features)
+        price = prediction * 343.66
 
-        return str(render_template('index.html', result=np.round(text,2)))
+        return render_template('index.html', result=np.round(price, 2))
 
 if __name__ == '__main__':
     app.run(debug= True)
