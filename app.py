@@ -5,7 +5,7 @@ import pandas as pd
 import datetime
 
 app = Flask(__name__, template_folder='templates')
-data = pd.read_csv('processed_data.csv')
+data = pd.read_csv('data.csv')
 model = pickle.load(open('model_rf.pkl','rb'))
 
 @app.route('/')

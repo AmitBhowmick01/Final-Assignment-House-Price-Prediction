@@ -17,100 +17,114 @@
     <title>House Price Prediction Page</title>
 
     <style>
+        html,
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            height: 100%;
             margin: 0;
-            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: black;
-            background-image: url("https://wallpaperaccess.com/full/1398312.jpg");
+            background-image: url("https://cdn.wallpapersafari.com/81/24/e6mZ8k.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-        }
-
-        header {
-            margin-top: 0px;
-            background-color: black;
-            color: whitesmoke;
-            font-size: 20px;
-            padding: 15px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: 'Cinzel', serif;
         }
 
         .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-            margin-top: 0px;
-            width: 800px;
-            height: 272px;
-            margin-right: 5px;
-            margin-left: 5px;
+            max-width: 850px;
+            margin: 0px auto;
+            padding: 42px;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-align: end;
+            height: 430px;
+            overflow-y: auto;
         }
 
-        .container input[type="text"] {
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-            font-size: 15px;
-            /* font-family: 'Ubuntu Mono', monospace; */
+        header {
+            text-align: center;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        header h1 {
+            color: white;
+        }
+
+        .container form {
+            margin-top: 43px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .input-group {
+            display: inline-block;
+            width: 48%;
+            margin-bottom: 9px;
             text-align: center;
         }
 
-        .container .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container label {
+        .input-group label {
             font-family: 'Lexend Deca', sans-serif;
-            margin-bottom: 5px;
+            display: block;
+            font-size: 18px;
         }
 
-        .button-row {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
+        .input-group input {
+            width: 75%;
+            padding: 5px;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
         }
 
-        .button-row button {
-            margin: 5px;
-            padding: 10px 20px;
-        }
-
-        .container .submit-button {
-            grid-column: 1 / -1;
+        .submit-button {
             margin-top: 20px;
-            text-align: end;
+            margin-bottom: 20px;
         }
 
-        .container .submit-button button {
-            padding: 5px 5px;
-            font-family: 'Ysabeau SC', sans-serif;
-            font-size: 18px;
+        .submit-button button {
+            background-color:darkgreen;
             color: white;
-            background-color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 15px;
+            font-family: 'Ysabeau SC', sans-serif;
         }
 
-        .fixed-div {
-            text-align: right;
-            width: 1100px;
-            height: 550px;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .submit-button button:hover {
+            background-color:chartreuse;
+            font-size: 15.5px;
+            color: black;
         }
 
-        .container .prediction {
+        .submit-button a {
+            color: #36A;
+            text-decoration: none;
+            margin-left: 10px px;
+            font-size: 15px;
+        }
+
+        .submit-button a:hover {
+            background-color:brown;
+            font-size: 15px;
+            color: black;
+        }
+
+        .prediction {
             font-family: 'Yatra One', cursive;
-            font-size: 18px;
+            font-size: 20px;
+            text-align: center;
+            margin-top: -50px;
         }
 
         .error-message {
@@ -141,78 +155,78 @@
                 return false;
             }
         }
+        
     </script>
 </head>
 
-
 <body>
-    <div class="fixed-div">
-        <header>
-            <h1>House Price Predictor</h1>
-        </header>
+    <header>
+        <h1>House Price Predictor</h1>
+    </header>
+    <div class="container">
+
         <form method="post" action="/predict" id="rows" onsubmit="return validateForm()">
-            <div class="container">
-                <div class="input-group">
-                    <label for="input1"><b>Bedrooms</b></label>
-                    <input type="text" id="input1" placeholder="Number of bedrooms" name="bedrooms">
-                </div>
-
-                <div class="input-group">
-                    <label for="input2"><b>Bathrooms</b></label>
-                    <input type="text" id="input2" placeholder="Number of bathrooms" name="bathrooms">
-                </div>
-
-                <div class="input-group">
-                    <label for="input3"><b>Area of Living Room</b></label>
-                    <input type="text" id="input3" placeholder="Area of Living Room in Sq. feet" name="sqft_living">
-                </div>
-
-                <div class="input-group">
-                    <label for="input4"><b>Area of Lot</b></label>
-                    <input type="text" id="input4" placeholder="Area of Lot in Sq. feet" name="sqft_lot">
-                </div>
-
-                <div class="input-group">
-                    <label for="input5"><b>Floors</b></label>
-                    <input type="text" id="input5" placeholder="Number of floors" name="floors">
-                </div>
-
-                <div class="input-group">
-                    <label for="input6"><b>Waterfront</b></label>
-                    <input type="text" id="input6" placeholder="Number of waterfront" name="waterfront">
-                </div>
-
-                <div class="input-group">
-                    <label for="input7"><b>Area of house Apart Basement</b></label>
-                    <input type="text" id="input7" placeholder="Apart from basement Sq feet of house" name="sqft_above">
-                </div>
-
-                <div class="input-group">
-                    <label for="input8"><b>Area of basement</b></label>
-                    <input type="text" id="input8" placeholder="Area of basement in Sq. feet" name="sqft_basement">
-                </div>
-
-                <div class="input-group">
-                    <label for="input9"><b>Built Year</b></label>
-                    <input type="text" id="input9" placeholder="Built Year of house. e.g, 1955" name="yr_built">
-                </div>
-
-                <div class="input-group">
-                    <label for="input10"><b>Renovation Year</b></label>
-                    <input type="text" id="input10" placeholder="If not then type 0." name="yr_renovated">
-                </div>
-
-                <div class="submit-button">
-                    <button type="submit" value="Predict"><b>Get Prediction</b></button>
-                    <a href="/"><b>Reset</b></a>
-                </div>
-
-                {% if result %}
-                <p class="prediction">
-                    Predicted Price is: {{ result }}
-                </p>
-                {% endif %}
+            <div class="input-group">
+                <label for="input1"><b>Bedrooms</b></label>
+                <input type="text" id="input1" placeholder="Number of bedrooms" name="bedrooms">
             </div>
+
+            <div class="input-group">
+                <label for="input2"><b>Bathrooms</b></label>
+                <input type="text" id="input2" placeholder="Number of bathrooms" name="bathrooms">
+            </div>
+
+            <div class="input-group">
+                <label for="input3"><b>Area of Living Room</b></label>
+                <input type="text" id="input3" placeholder="Area of Living Room in Sq. feet" name="sqft_living">
+            </div>
+
+            <div class="input-group">
+                <label for="input4"><b>Area of Lot</b></label>
+                <input type="text" id="input4" placeholder="Area of Lot in Sq. feet" name="sqft_lot">
+            </div>
+
+            <div class="input-group">
+                <label for="input5"><b>Floors</b></label>
+                <input type="text" id="input5" placeholder="Number of floors" name="floors">
+            </div>
+
+            <div class="input-group">
+                <label for="input6"><b>Waterfront</b></label>
+                <input type="text" id="input6" placeholder="Number of waterfront" name="waterfront">
+            </div>
+
+            <div class="input-group">
+                <label for="input7"><b>Area of house Apart Basement</b></label>
+                <input type="text" id="input7" placeholder="Apart from basement Sq feet of house" name="sqft_above">
+            </div>
+
+            <div class="input-group">
+                <label for="input8"><b>Area of basement</b></label>
+                <input type="text" id="input8" placeholder="Area of basement in Sq. feet" name="sqft_basement">
+            </div>
+
+            <div class="input-group">
+                <label for="input9"><b>Built Year</b></label>
+                <input type="text" id="input9" placeholder="Built Year of house. e.g, 1955" name="yr_built">
+            </div>
+
+            <div class="input-group">
+                <label for="input10"><b>Renovation Year</b></label>
+                <input type="text" id="input10" placeholder="If not then type 0." name="yr_renovated">
+            </div>
+
+
+            <div class="submit-button">
+                <button type="submit" value="Predict"><b>Get Prediction</b></button>
+                <a href="/"><b>Reset</b></a>
+            </div>
+
+            {% if result %}
+            <p class="prediction">
+                Predicted Price is: ${{ result }}
+            </p>
+            {% endif %}
         </form>
     </div>
 </body>
