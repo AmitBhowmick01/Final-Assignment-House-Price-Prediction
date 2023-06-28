@@ -33,7 +33,7 @@ def predict():
 
         features = np.array([year, bdrm, btrm, sf_liv, sf_lot, flr, water, view, condition, sf_ab, sf_bs, build, reno, city, zip, country]).reshape(1, -1)
         prediction = model.predict(features)
-        price = prediction * 343.66
+        price = prediction * 345.6
 
         return render_template('index.html', result=np.round(price, 2))
 
